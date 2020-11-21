@@ -19,10 +19,10 @@ public class RealNumber{
   *Special case: if one is exactly zero, the other must be exactly zero.
   */
   public boolean equals(RealNumber other){
-    if (this.getValue() == 0) {
-      return (this.getValue() == other.getValue());
+    if (this.value == 0) {
+      return (this.value == other.value);
     } else {
-      return (Math.abs((this.getValue() - other.getValue())/(this.getValue())) <= 0.00001);
+      return (Math.abs((this.value - other.value)/(this.value)) <= 0.00001);
     }
   }
 
@@ -33,7 +33,7 @@ public class RealNumber{
   public RealNumber add(RealNumber other){
      //other can be ANY RealNumber, including a RationalNumber
      //or other subclasses of RealNumber (that aren't written yet)
-     return null;
+     return (new RealNumber(this.value + other.value));
   }
 
   /*
