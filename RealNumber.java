@@ -49,7 +49,7 @@ public class RealNumber{
   *this divided by the other
   */
   public RealNumber divide(RealNumber other){
-        return null;
+        return (new RealNumber(value / other.value));
   }
 
   /*
@@ -57,6 +57,6 @@ public class RealNumber{
   *this minus the other
   */
   public RealNumber subtract(RealNumber other){
-    return null;
+    return (new RealNumber(value - other.value));
   }
 }
