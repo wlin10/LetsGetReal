@@ -51,7 +51,7 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return (numerator == other.numerator && denominator == other.denominator);
+    return (numerator == other.getNumerator() && denominator == other.getDenominator());
   }
 
 
@@ -96,16 +96,17 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    numerator /= (gcd(Math.abs(numerator), denominator));
-    denominator /= (gcd(Math.abs(numerator), denominator));
+    int factor = (gcd(Math.abs(numerator), denominator));
+    numerator /= factor;
+    denominator /= factor;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return (new RationalNumber(numerator * other.numerator,
-    denominator * other.denominator));
+    return (new RationalNumber(numerator * other.getNumerator(),
+    denominator * other.getDenominator()));
   }
 
   /**
@@ -119,18 +120,18 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    int commonDeno = denominator * other.denominator;
-    int nume1 = numerator * other.denominator;
-    int nume2 = other.numerator * denominator;
+    int commonDeno = denominator * other.getDenominator();
+    int nume1 = numerator * other.getDenominator();
+    int nume2 = other.getNumerator() * denominator;
     return new RationalNumber(nume1 + nume2, commonDeno);
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    int commonDeno = denominator * other.denominator;
-    int nume1 = numerator * other.denominator;
-    int nume2 = other.numerator * denominator;
+    int commonDeno = denominator * other.getDenominator();
+    int nume1 = numerator * other.getDenominator();
+    int nume2 = other.getNumerator() * denominator;
     return new RationalNumber(nume1 - nume2, commonDeno);
   }
 }
