@@ -25,7 +25,7 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    return (numerator/denominator);
+    return (double)numerator/denominator;
   }
 
   /**
@@ -75,6 +75,11 @@ public class RationalNumber extends RealNumber
   */
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
+    if (a == 0) {
+      return b;
+    } else if (b == 0) {
+      return a;
+    }
     while (a != b) {
       if (a > b) {
         a -= b;
@@ -107,19 +112,25 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return (multiply(other.reciprocal()));
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    int commonDeno = denominator * other.denominator;
+    int nume1 = numerator * other.denominator;
+    int nume2 = other.numerator * denominator;
+    return new RationalNumber(nume1 + nume2, commonDeno);
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    int commonDeno = denominator * other.denominator;
+    int nume1 = numerator * other.denominator;
+    int nume2 = other.numerator * denominator;
+    return new RationalNumber(nume1 - nume2, commonDeno);
   }
 }
