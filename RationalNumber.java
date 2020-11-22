@@ -59,7 +59,13 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (numerator == 0) {
+      return "0";
+    } else if (denominator == 1) {
+      return numerator + "";
+    } else {
     return (numerator + "/" + denominator);
+    }
   }
 
   /**Calculate the GCD of two integers.
@@ -93,7 +99,8 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    return (new RationalNumber(numerator * other.numerator,
+    denominator * other.denominator));
   }
 
   /**
