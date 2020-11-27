@@ -10,7 +10,7 @@ public class RealNumber extends Number {
   }
 
   public String toString(){
-    return ""+getValue();
+    return "" + getValue();
   }
   //---------ONLY EDIT BELOW THIS LINE------------
 
